@@ -14,10 +14,6 @@ export const rendererConfig: Configuration = {
   },
   plugins,
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
-    fallback: {
-      "path": false,
-      "fs": false
-    }
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css']
   },
 };

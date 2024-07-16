@@ -10,9 +10,30 @@ contextBridge.exposeInMainWorld('action', {
     devMode: setDevMode,
     muted: setMuted,
     sensitive: setSensitive,
-    voiceOver: setVoiceOver
+    voiceOver: setVoiceOver,
+    startSSG: setStartSSG,
+    displayOff: setDisplayOff,
+    requirePass: setRequirePass,
+    runOnBattery: setRunOnBattery
 });
-// 
+//
+
+function setStartSSG(value: number) {
+    sendMessage({'startSSG': true, value: value});
+}
+
+function setDisplayOff(value: number) {
+    sendMessage({'displayOff': true, value: value});
+}
+
+function setRequirePass(value: number) {
+    sendMessage({'requirePass': true, value: value});
+}
+
+function setRunOnBattery(value: boolean) {
+    sendMessage({'runOnBattery': true, value: value});
+}
+
 function setDevMode(value: boolean) {
     sendMessage({'devMode': true, value: value});
 }

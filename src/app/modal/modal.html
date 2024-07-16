@@ -45,6 +45,32 @@
         #options > div {
             margin-right: 24px;
         }
+        #setup {
+            color: silver;
+            border: 1px solid rgb(75, 75, 75);;
+            border-radius: 4px;
+            margin: 24px 0;
+            background-color: rgba(255, 255, 255, .025);
+        }
+        #setup > div {
+            border-bottom: 1px solid rgb(116, 116, 116);;
+            margin: 4px;
+            padding: 4px;
+        }
+        #setup > div > input {
+            max-width: 48px;
+            background-color: transparent;
+            color: whitesmoke;
+            border: none;
+            text-align: center;
+        }
+        #setup > div > input:focus {
+            outline: none;
+        }
+        #setup > div:last-child {
+            border-bottom: none;
+        }
+
         #controls {
             display: flex;
             flex-direction: row;
@@ -86,7 +112,7 @@
         <div id="main-block">
             <div id="options">
                 <div class="icon">
-                    <img src="./ssg-icon-color.svg" alt="">
+                    <img src="/config_window/ssg-icon-color.svg" alt="">
                 </div>
                 <div class="checkboxes">
                     <div class="mute checkbox">
@@ -101,6 +127,30 @@
                         <input type="checkbox" name="voice-over" id="voice-over-checkbox">
                         <label for="voice-over-checkbox">Activate VoiceOver</label>
                     </div>
+                </div>
+            </div>
+            <div id="setup">
+                <div class="start-ssg">
+                    <label for="start-ssg">Start ScreenSaverGallery when inactive for</label>
+                    <input type="number" max="60" name="start-ssg" id="start-ssg">
+                    <span>minutes</span>
+                </div>
+                <div class="display-off">
+                    <label for="display-off">Turn display off when inactive for</label>
+                    <input type="number" max="60" name="display-off" id="display-off">
+                    <span>minutes</span>
+                </div>
+                <div class="require-pass">
+                    <label for="require-pass">Require password after ScreenSaverGallery begins after</label>
+                    <input type="number" max="60" name="require-pass" id="require-pass">
+                    <span>minutes</span>
+                </div>
+                <div class="run-on-battery">
+                    <label for="run-on-battery">Start ScreenSaverGallery on battery</label>
+                    <select name="run-on-battery" id="run-on-battery">
+                        <option value="0" selected>NO</option>
+                        <option value="1">YES</option>
+                    </select>
                 </div>
             </div>
             <div id="debug">

@@ -10,6 +10,7 @@ export class ScreenSaverGallery {
     private isPreview = false;
 	private devMode = false;
 	private store: any;
+	windows: any[] = [];
 
 	constructor(isPreview: boolean, devMode: boolean, store: any) {
         this.isPreview = isPreview;
@@ -23,12 +24,11 @@ export class ScreenSaverGallery {
 		}
 		// screens
 		let screens = screen.getAllDisplays();
-		const windows = [];
 		// console.log("screens", screens);
 
 		for (const s of screens) {
 			const w = this.createSSGWindow(s.bounds.x, s.bounds.y, s.bounds.width, s.bounds.height, this.devMode);
-			windows.push(w);
+			this.windows.push(w);
 		}
     }
 
@@ -74,7 +74,9 @@ export class ScreenSaverGallery {
 	    });
 		
 		// deinit
-        window.on("closed", () => { window = null });
+        window.on("closed", () => { 
+			window = null
+		});
 
 		return window;
 	}

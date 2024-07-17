@@ -26,13 +26,14 @@ export class ScreenSaverGallery {
 		let screens = screen.getAllDisplays();
 		// console.log("screens", screens);
 
-		for (const s of screens) {
-			const w = this.createSSGWindow(s.bounds.x, s.bounds.y, s.bounds.width, s.bounds.height, this.devMode);
+		for (let i = 0; i < screens.length; i++) {
+			const s = screens[i];
+			const w = this.createSSGWindow(s.bounds.x, s.bounds.y, s.bounds.width, s.bounds.height, i,  this.devMode);
 			this.windows.push(w);
 		}
     }
 
-	private createSSGWindow(x: number, y: number, width: number, height: number, dev: boolean = false) {
+	private createSSGWindow(x: number, y: number, width: number, height: number, index: number, dev: boolean = false) {
 		let window = new BrowserWindow({
 			x: x,
 			y: y,
@@ -74,7 +75,8 @@ export class ScreenSaverGallery {
 	    });
 		
 		// deinit
-        window.on("closed", () => { 
+        window.on("closed", () => {
+			this.windows.splice(index, 1); // remove window from windows object
 			window = null
 		});
 

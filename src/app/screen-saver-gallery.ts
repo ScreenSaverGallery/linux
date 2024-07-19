@@ -1,9 +1,12 @@
 import { BrowserWindow, app, screen } from 'electron';
 import { SSG_URL, SSG_URL_DEV, BUILD } from './env';
+// rxjs
+import { Subject } from 'rxjs';
 
 const mainURL = SSG_URL;
 const devURL = SSG_URL_DEV;
-const localURL = "file://" + __dirname + "/assets/local/default.html";
+const localURL = `file://${__dirname}/assets/local/default.html`;
+const blankURL = `file://${__dirname}/assets/blank.html`;
 
 
 export class ScreenSaverGallery {
@@ -11,6 +14,7 @@ export class ScreenSaverGallery {
 	private devMode = false;
 	private store: any;
 	windows: any[] = [];
+	onClose: Subject<boolean> = new Subject();
 
 	constructor(isPreview: boolean, devMode: boolean, store: any) {
         this.isPreview = isPreview;
@@ -32,6 +36,12 @@ export class ScreenSaverGallery {
 			this.windows.push(w);
 		}
     }
+
+	setBlank(): void {
+		for (const w of this.windows) {
+			w.loadURL(blankURL);
+		}
+	}
 
 	private createSSGWindow(x: number, y: number, width: number, height: number, index: number, dev: boolean = false) {
 		let window = new BrowserWindow({
@@ -77,6 +87,8 @@ export class ScreenSaverGallery {
 		// deinit
         window.on("closed", () => {
 			this.windows.splice(index, 1); // remove window from windows object
+			window.destroy();
+			this.onClose.next(true);
 			window = null
 		});
 

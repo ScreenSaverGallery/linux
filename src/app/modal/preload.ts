@@ -49,6 +49,9 @@ function setSensitive(value: boolean) {
 function setVoiceOver(value: boolean) {
     sendMessage({'voiceOver': true, value: value});
 }
+function close(): void {
+    sendMessage({'closed': true});
+}
 
 function openLink(link: string) {
     shell.openExternal(link);

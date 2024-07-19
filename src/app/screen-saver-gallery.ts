@@ -100,10 +100,10 @@ export class ScreenSaverGallery {
 		// var code = `window.navigator['uuid'] = ${this.id}`;
 		const contents = window.webContents;
 		var code = '';
-		code += `navigator.id = "${this.store.getId}";`;
-		code += `navigator.muted = ${this.store.getMuted};`;
-		code += `navigator.sensitive = ${this.store.getSensitive};`;
-		code += `navigator.voiceOver = ${this.store.getVoiceOver};`;
+		code += `navigator.id = "${this.store.id}";`;
+		code += `navigator.muted = ${this.store.muted};`;
+		code += `navigator.sensitive = ${this.store.sensitive};`;
+		code += `navigator.voiceOver = ${this.store.voiceOver};`;
 		if (!dev) {
 			// exit if mousemove, keydown, click
 			code += 'document.addEventListener("mousemove", () => { window.close(); });';

@@ -42,7 +42,7 @@ export class Store {
 
     // GETTERS
     get devMode(): boolean {
-        return this.data.devMode ? this.data.devMode : this.defaults.devMode;
+        return this.data.devMode ? Boolean(this.data.devMode) : this.defaults.devMode;
     }
 
     get id(): string {
@@ -50,36 +50,36 @@ export class Store {
     }
 
     get sensitive(): boolean {
-        return this.data.sensitive ? this.data.sensitive : this.defaults.sensitive;
+        return this.data.sensitive ? Boolean(this.data.sensitive) : this.defaults.sensitive;
     }
 
     get muted(): boolean {
-        return this.data.muted ? this.data.muted : this.defaults.muted;
+        return this.data.muted ? Boolean(this.data.muted) : this.defaults.muted;
     }
 
     get voiceOver(): boolean {
-        return this.data.voiceOver ? this.data.voiceOver : this.defaults.voiceOver;
+        return this.data.voiceOver ? Boolean(this.data.voiceOver) : this.defaults.voiceOver;
     }
 
     get startSSG(): number {
-        return this.data.startSSG ? this.data.startSSG : this.defaults.startSSG;
+        return this.data.startSSG ? Number(this.data.startSSG) : this.defaults.startSSG;
     }
 
     get displayOff(): number {
-        return this.data.displayOff ? this.data.displayOff : this.defaults.displayOff;
+        return this.data.displayOff ? Number(this.data.displayOff) : this.defaults.displayOff;
     }
 
     get requirePass(): number {
-        return this.data.requirePass ? this.data.requirePass : this.defaults.requirePass;
+        return this.data.requirePass ? Number(this.data.requirePass) : this.defaults.requirePass;
     }
 
     get runOnBattery(): boolean {
-        return this.data.runOnBattery ? this.data.runOnBattery : this.defaults.runOnBattery;
+        return this.data.runOnBattery ? Boolean(this.data.runOnBattery) : this.defaults.runOnBattery;
     }
 
     // SETTERS
     set devMode(value: boolean) {
-        console.log('setDevMode', value);
+        // console.log('setDevMode', value);
         this.data.devMode = value;
         this.writeData();
         // fs.writeFileSync(this.path, JSON.stringify(this.data));

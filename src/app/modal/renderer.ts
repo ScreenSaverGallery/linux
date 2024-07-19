@@ -57,6 +57,7 @@ export class ConfigModal {
     }
     
     closeWindow() {
+        window.action.close();
         window.close();
         return true;
     }
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sensitiveCheckboxElm) sensitiveCheckboxElm.checked = config.sensitive;
     const debugCheckboxElm : HTMLInputElement | null = document.querySelector('#debug-checkbox');
     if (debugCheckboxElm) debugCheckboxElm.checked = config.devMode;
-    const voiceOverCheckboxElm: HTMLInputElement | null = document.querySelector('#low-vision-checkbox');
+    const voiceOverCheckboxElm: HTMLInputElement | null = document.querySelector('#voice-over-checkbox');
     if (voiceOverCheckboxElm) voiceOverCheckboxElm.checked = config.voiceOver;
     const startSSGElm: HTMLInputElement | null = document.querySelector('#start-ssg');
     if (startSSGElm) startSSGElm.value = config.startSSG ? config.startSSG : '0';

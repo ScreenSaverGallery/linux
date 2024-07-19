@@ -43,6 +43,12 @@ export class ScreenSaverGallery {
 		}
 	}
 
+	destroy(): void {
+		for (const w of this.windows) {
+			w.destroy();
+		}
+	}
+
 	private createSSGWindow(x: number, y: number, width: number, height: number, index: number, dev: boolean = false) {
 		let window = new BrowserWindow({
 			x: x,

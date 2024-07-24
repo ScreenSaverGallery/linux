@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { spawn } from 'child_process';
 import * as path from 'path';
 import * as ChildProcess from 'child_process';
+import AutoLaunch from 'auto-launch';
 // rxjs
 import { Subscription } from 'rxjs';
 
@@ -30,6 +31,22 @@ app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
 // updater
 // const updater = new Updater();
 // updater.check();
+
+// autostart
+// app.setLoginItemSettings({
+//     openAtLogin: true
+// });
+const launcher = new AutoLaunch({
+    name: 'ScreenSaverGallery'
+});
+
+launcher.isEnabled()
+.then((isEnabled: boolean) => {
+    console.log('autolaunch is enabled?', isEnabled);
+    if (isEnabled) return;
+    launcher.enable();
+})
+.catch((e: any) => console.error(e));
 
 // tray
 let tray!: Tray;
@@ -154,7 +171,7 @@ function initPowerMode() {
                     closeSubscribed = true;
                 }
                 // system is idle without interruption, so turn display off after after ;)
-                if (store.displayOff && systemIdle >= (store.startSSG + store.displayOff)) { 
+                if (store.displayOff && systemIdle >= (store.startSSG + store.displayOff) && !screenLocked) { 
                     console.log('----------------- SHOULD LOCK THE SCREEN --------------');
                     // blank screen
                     // if should lock, than `gnome-screensaver-command -l` (-l, --lock)
@@ -185,6 +202,7 @@ function lockScreen(): void {
 
 function blankScreen(): void {
     if (ssg) ssg.destroy();
+    screenLocked = true;
     // spawn('gnome-screensaver-command', ['-a']);
     // more general
     spawn('xdg-screensaver', ['activate']);

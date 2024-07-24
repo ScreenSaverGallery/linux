@@ -1,9 +1,12 @@
-- remove nsis
-- change main.ts to behave properly on linux
-- the concept is running as Tray app (see eg: https://github.com/muffinista/before-dawn)
-- implement [`powerSaveBlocker`](https://www.electronjs.org/docs/latest/api/power-save-blocker) and [`powerMonitor`](https://www.electronjs.org/docs/latest/api/power-monitor) to behave properly (eg. not run when on batter, or block sleep for some time..., add these `runAfter`, `sleepAfter` to config... see example: https://github.com/muffinista/before-dawn/blob/main/src/main/index.js#L1796)
-- autostart mode (run Tray after every boot!) see: https://github.com/muffinista/before-dawn/blob/main/src/main/autostarter.js
-- install to app folder (ask user to move automaticaly, see: https://github.com/muffinista/before-dawn/blob/main/src/main/index.js#L1126)
+- setup github automatic build
+- setup github release auto update
+
+x remove nsis
+x change main.ts to behave properly on linux
+x the concept is running as Tray app (see eg: https://github.com/muffinista/before-dawn)
+x implement [`powerSaveBlocker`](https://www.electronjs.org/docs/latest/api/power-save-blocker) and [`powerMonitor`](https://www.electronjs.org/docs/latest/api/power-monitor) to behave properly (eg. not run when on batter, or block sleep for some time..., add these `runAfter`, `sleepAfter` to config... see example: https://github.com/muffinista/before-dawn/blob/main/src/main/index.js#L1796)
+x autostart mode (run Tray after every boot!) see: https://github.com/muffinista/before-dawn/blob/main/src/main/autostarter.js
+x install to app folder (ask user to move automaticaly, see: https://github.com/muffinista/before-dawn/blob/main/src/main/index.js#L1126)
 - hide in dock? see: https://github.com/muffinista/before-dawn/blob/main/src/main/index.js#L1714
 
 

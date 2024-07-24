@@ -14,17 +14,25 @@ import { rendererConfig } from './webpack.renderer.config';
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
+    name: "ScreenSaverGallery",
+    executableName: "screensavergallery",
+    icon: `${__dirname}/src/assets/iconset/ssg-icon-512`,
+    appBundleId: "org.metazoa.screensavergallery",
+    appCopyright: "Copyright © 2012 metazoa.org"
   },
   rebuildConfig: {},
   makers: [
-    // new MakerSquirrel({}),
-    {
-      name: '@imxeno/electron-forge-maker-nsis',
-      config: {}
-    },
-    new MakerZIP({}, ['darwin']),
-    new MakerRpm({}),
-    new MakerDeb({})
+    // new MakerZIP({}, /* ['linux'] */),
+    new MakerRpm({
+      options: {
+        icon: `${__dirname}/src/assets/iconset/ssg-icon-512.png`
+      }
+    }),
+    new MakerDeb({
+      options: {
+        icon: `${__dirname}/src/assets/iconset/ssg-icon-512.png`
+      }
+    })
   ],
   plugins: [
     new AutoUnpackNativesPlugin({}),

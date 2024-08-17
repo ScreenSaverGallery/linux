@@ -1,7 +1,8 @@
+- setup github release auto update
+- build for arm64 (?) see: github action "ARM runner"
+
 x .env dotenv
 x setup github automatic build
-- setup github release auto update
-
 x remove nsis
 x change main.ts to behave properly on linux
 x the concept is running as Tray app (see eg: https://github.com/muffinista/before-dawn)

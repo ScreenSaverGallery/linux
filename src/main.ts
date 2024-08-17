@@ -3,7 +3,6 @@ import * as remote from '@electron/remote/main';
 import { ipcMain } from 'electron';
 import { Store } from './app/store';
 import { ScreenSaverGallery } from './app/screen-saver-gallery';
-import { Updater } from './app/updater';
 import { v4 as uuidv4 } from 'uuid';
 import { spawn } from 'child_process';
 import * as path from 'path';
@@ -29,8 +28,7 @@ remote.initialize();
 app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
 
 // updater
-// const updater = new Updater();
-// updater.check();
+// TODO!!!
 
 // autostart
 // app.setLoginItemSettings({

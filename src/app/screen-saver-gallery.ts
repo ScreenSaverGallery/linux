@@ -1,10 +1,9 @@
 import { BrowserWindow, app, screen } from 'electron';
-import { SSG_URL, SSG_URL_DEV, BUILD } from './env';
 // rxjs
 import { Subject } from 'rxjs';
 
-const mainURL = SSG_URL;
-const devURL = SSG_URL_DEV;
+const mainURL = process.env.SSG_URL;
+const devURL = process.env.SSG_URL_DEV;
 const localURL = `file://${__dirname}/assets/local/default.html`;
 const blankURL = `file://${__dirname}/assets/blank.html`;
 
@@ -71,7 +70,7 @@ export class ScreenSaverGallery {
 		// set always on top
 		window.setAlwaysOnTop(true);
 		// set user agent
-		window.webContents.setUserAgent(window.webContents.getUserAgent() + ` SSG/${app.getVersion()} (${BUILD})`);
+		window.webContents.setUserAgent(window.webContents.getUserAgent() + ` SSG/${app.getVersion()} (${process.env.BUILD})`);
 		// hide the cursor
 		window.webContents.on('dom-ready', (event: any) => {
             let css = '* { cursor: none !important; pointer-events: none; }';

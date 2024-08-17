@@ -1,3 +1,4 @@
+x .env dotenv
 - setup github automatic build
 - setup github release auto update
 

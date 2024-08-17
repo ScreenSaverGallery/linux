@@ -26,11 +26,13 @@ const config: ForgeConfig = {
     // new MakerZIP({}, /* ['linux'] */),
     new MakerRpm({
       options: {
+        homepage: 'https://screensaver.gallery',
         icon: `${__dirname}/src/assets/iconset/ssg-icon-512.png`
       }
     }),
     new MakerDeb({
       options: {
+        homepage: 'https://screensaver.gallery',
         icon: `${__dirname}/src/assets/iconset/ssg-icon-512.png`
       }
     })

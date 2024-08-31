@@ -18,16 +18,17 @@ Pack the app for selected targets (see: [`package.json`](package.json))
 - **make** `yarn make`
 Create windows nsis installator (see: [`package.json`](package.json))
 
-> **Note**: You must setup your own `src/app/env.ts` file and its respective variables. The file `src/app/env.example.ts` tells you how. These variables (urls) are not yet publicly available as the content is subject to further development. If you want to participate on ScreenSaverGallery project, feel free to contact us to get the active urls. If you want to use this code for your own needs, set up urls of your choice. In that case also do not use the name `ScreenSaverGallery` as is and  replace the ScreenSaverGallery icon with your own. If you are looking for a more general solution for screensavers, try [`before-dawn`](https://github.com/muffinista/before-dawn) project by [Colin Mitchell](https://github.com/muffinista).
+> **Note**: You must setup your own `.env` file and its respective variables. The file `.env.example` tells you how. These variables (urls) are not yet publicly available as the content is subject to further development. If you want to participate on ScreenSaverGallery project, feel free to contact us to get the active urls. If you want to use this code for your own needs, set up urls of your choice. In that case also do not use the name `ScreenSaverGallery` as is and  replace the ScreenSaverGallery icon with your own. If you are looking for a more general solution for screensavers, try [`before-dawn`](https://github.com/muffinista/before-dawn) project by [Colin Mitchell](https://github.com/muffinista).
 
 
-### For Users (not deployed yet):
-<!-- 1. Go to [ScreenSaverGallery](https://screensaver.gallery/get) website
-2. Download and install the latest ScreenSaverGallery
-3. The ScreenSaverGallery should be set as default during the installation process. If not, open ScreenSaverGallery -->
+### For Users:
+1. Go to [ScreenSaverGallery](https://screensaver.gallery/get) website or [Releases](https://github.com/ScreenSaverGallery/linux/releases) repository.
+2. Download and install latest ScreenSaverGallery for your platform.
+3. Run ScreenSaverGallery once from your Applications folder.
+4. ScreenSaverGallery options will appear as a system tray and set itself to run on every login.
 
 ## How It Works
-The technical implementation of ScreenSaverGallery is straightforward yet effective. The screensaver is essentially an electron app (chromeless browser) which displays curated content from a specified URL. [...]
+The technical implementation of ScreenSaverGallery is straightforward yet effective. The screensaver is essentially an electron app (chromeless browser) which displays curated content from a specified URL. On Linux systems, it runs as a system tray application to control idle time. After a certain amount of time, a full-screen, chrome-less window starts to display a current (curated) content.
 
 ## Features
 - Display a variety of digital and online artworks as a screensaver.
